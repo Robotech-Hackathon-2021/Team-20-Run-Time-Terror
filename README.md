@@ -1,21 +1,9 @@
-# Team Name : name goes here
-Clone this repo and use this to upload your project  <- Remove this line before submission -> <br>
-Team ID : **#hack__**    <!--- Replace __ with problem statement number -->
+# IMPORTANT: Bug Fixes
 
-## Problem statement
-Replace this with your selected problem statement 
+## `navigator.getUserMedia`
 
-### Introduction 
-<!--- Basically abstract of your project -->
-Introdution goes here
+`navigator.getUserMedia` is now deprecated and is replaced by `navigator.mediaDevices.getUserMedia`. To fix this bug replace all versions of `navigator.getUserMedia` with `navigator.mediaDevices.getUserMedia`
 
-#### Team Member
+## Low-end Devices Bug
 
-SrNo | Name | Year | Department| Section | Email id
-:--|:--|:--|:--|:--|:--|
-1 | NAME GOES HERE | 2nd |  Information Technology | A | example@internet.com
-2 | NAME GOES HERE | 3rd | Computer Science | B | example@internet.com
-3 | NAME GOES HERE | 1st |  Mechanical | A | example@internet.com
-4 | NAME GOES HERE| 4th |  Civil | E | example@internet.com
-
-<br>
+The video eventListener for `play` fires up too early on low-end machines, before the video is fully loaded, which causes errors to pop up from the Face API and terminates the script (tested on Debian [Firefox] and Windows [Chrome, Firefox]). Replaced by `playing` event, which fires up when the media has enough data to start playing.
